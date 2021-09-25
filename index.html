@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Test</title>
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+</head> 
+<body>
+
+        <div class="scores">View Highscores</div>
+        <div>Time: <span id="theTime">75</span></div>
+
+
+    <main>
+        <section class="loadScreen">
+            <div class="quiz-start">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try to answer the following code-related questions within the time limit.
+                    Keep in mind that incorrect answers will panalize your score time by ten seconds!
+                </p>
+
+                <button id="startButton" class="purple">Start Quiz</button>
+            </div>
+        </section>
+
+        <section id="question-box" class="hide">
+            <div>
+                <h1 id="ask-question">Question here</h1>
+                <ol id="qList"></ol>
+            </div>  
+        </section>
+
+        <section id="endGame" class="hide">
+            <form id="enter-name" method="POST">
+                <label for="name-text">Enter your name: </label>
+                <input type="text" placeholder="Hello, my name is..." name="name-text" id="name-text"></label>
+            </form>
+
+
+        </section>
+
+    </main>
+    
+
+    <script src="Assets/JS/questions.js"></script>
+    <script src="Assets/JS/script.js"></script>
+</body>
+</html>
