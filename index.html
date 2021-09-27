@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Test</title>
-    <link rel="stylesheet" href="Assets/CSS/style.css">
-</head> 
+    <link rel="stylesheet" href="./Assets/style.css">
+</head>
 <body>
 
-        <div class="scores">View Highscores</div>
-        <div>Time: <span id="theTime">75</span></div>
+
+    <header>
+        <div class="purple"><a href="highScores.html">View Highscores</a></div>
+        <div class="purple">Time remaining: <span id="theTime">0</span></div>
+    </header>
 
 
     <main>
         <section class="loadScreen">
-            <div class="quiz-start">
-                <h1>Coding Quiz Challenge</h1>
-                <p>Try to answer the following code-related questions within the time limit.
-                    Keep in mind that incorrect answers will panalize your score time by ten seconds!
+            <div class="content">
+                <h1>Knowledge Quiz</h1>
+            
+                <p>Try to answer the following general knowledge questions within the time limit.
+                    Keep in mind that incorrect answers will penalize your time by ten seconds!
                 </p>
 
                 <button id="startButton" class="purple">Start Quiz</button>
@@ -26,25 +30,28 @@
         </section>
 
         <section id="question-box" class="hide">
-            <div>
-                <h1 id="ask-question">Question here</h1>
-                <ol id="qList"></ol>
+            <div class="content">
+                <h1 id="ask-question"><span>Question here</span></h1>
+                <ul id="qList"></ul>
             </div>  
         </section>
 
         <section id="endGame" class="hide">
-            <form id="enter-name" method="POST">
-                <label for="name-text">Enter your name: </label>
-                <input type="text" placeholder="Hello, my name is..." name="name-text" id="name-text"></label>
-            </form>
-
+            <div class="content">
+                <h1>Here's how you did!</h1>
+                <p>Your score was: <span id="your-score">0</span></p>
+                <form id="enter-name" method="POST">
+                    <label for="name-text">Enter your name: </label>
+                    <input type="text" placeholder="Hello, my name is..." name="name-text" id="name-text"></label>
+                </form>
+            </div>  
 
         </section>
 
     </main>
     
 
-    <script src="Assets/JS/questions.js"></script>
-    <script src="Assets/JS/script.js"></script>
+    <script src="Assets/questions.js"></script>
+    <script src="./Assets/script.js"></script>
 </body>
 </html>
