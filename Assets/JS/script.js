@@ -14,6 +14,9 @@ var countDown;
 var questionNumberIndex = 0;
 var currentQuestion;
 
+
+//when start button is pressed, hide welcome screen and show div that will hold questions
+//also starts timer and the rendering of questions
 function startQuiz(event){
     event.preventDefault();
 
@@ -27,6 +30,8 @@ function startQuiz(event){
 
 }
 
+//will display each question and associated answers based on what is stored in questions.js
+//funcion will call after each click on answer
 function askQuestion(){
     currentQuestion = questions[questionNumberIndex];
 
@@ -34,8 +39,11 @@ function askQuestion(){
     questionTitle.textContent = currentQuestion.question;
 
     var theQuestions = currentQuestion.answers;
+    
+    //clear space that holds questions in prep for new ones
     answersSpace.innerHTML = "";
 
+    //create new element for each answer and place in the answer div
     for(let i = 0; i < theQuestions.length; i++){
         var nextAnswer = document.createElement("LI");
         nextAnswer.setAttribute("class", "purple")
@@ -48,11 +56,12 @@ function askQuestion(){
         answersSpace.appendChild(nextAnswer);
     }
            
+    //move to next question
     questionNumberIndex++;
 
 }
 
-
+//start count down clock, initial start time is based on home many questions
 function startTimer(){
 
     //give 10 seconds per question
@@ -70,6 +79,7 @@ function startTimer(){
 
 }
 
+//when gameOver is call, stop timer so does not keep running
 function stopTimer(){
     clearInterval(countDown);
 }
@@ -121,7 +131,6 @@ questionArea.addEventListener("click", event => {
     var element = event.target;
 
     if(element.tagName === "BUTTON"){
-        console.log(element.textContent);
         var buttons = document.querySelectorAll("button[index]");
 
         if(element.getAttribute("index") === currentQuestion.answerKey){
@@ -131,6 +140,8 @@ questionArea.addEventListener("click", event => {
             buttons[currentQuestion.answerKey].setAttribute("class", "green answer-button");
             timeleft -= 10;
         }
+
+        //checks if there are questions left to be asked or if there is time left on clock
         if(questionNumberIndex >= questions.length || timeleft <= 0){
             setTimeout(() => {
                 gameOver();
